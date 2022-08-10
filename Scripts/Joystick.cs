@@ -3,30 +3,29 @@ using UnityEngine.EventSystems;
 
 namespace JoystickPack
 {
-    public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
+    public abstract class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
     {
         [SerializeField]
         private float handleRange = 1f;
         [SerializeField]
-        private float deadZone = 0f;
+        private float deadZone;
         [SerializeField]
         private AxisOptions axisOptions = AxisOptions.Both;
         [SerializeField]
-        private bool snapX = false;
+        private bool snapX;
         [SerializeField]
-        private bool snapY = false;
+        private bool snapY;
 
         [SerializeField]
-        protected RectTransform background = null;
+        private RectTransform background;
         [SerializeField]
-        private RectTransform handle = null;
+        private RectTransform handle;
 
-        private RectTransform baseRect = null;
-
+        private RectTransform baseRect;
         private Canvas canvas;
         private Camera cam;
 
-        private Vector2 input = Vector2.zero;
+        private Vector2 input;
 
         public float Horizontal => snapX ? SnapFloat(input.x, AxisOptions.Horizontal) : input.x;
         public float Vertical => snapY ? SnapFloat(input.y, AxisOptions.Vertical) : input.y;
@@ -60,6 +59,12 @@ namespace JoystickPack
         {
             get => snapY;
             set => snapY = value;
+        }
+
+        public RectTransform Background
+        {
+            get => background;
+            set => background = value;
         }
 
         protected virtual void Start()
@@ -159,8 +164,7 @@ namespace JoystickPack
 
         protected Vector2 ScreenPointToAnchoredPosition(Vector2 screenPosition)
         {
-            Vector2 localPoint = Vector2.zero;
-            if (RectTransformUtility.ScreenPointToLocalPointInRectangle(baseRect, screenPosition, cam, out localPoint))
+            if (RectTransformUtility.ScreenPointToLocalPointInRectangle(baseRect, screenPosition, cam, out Vector2 localPoint))
             {
                 Vector2 pivotOffset = baseRect.pivot * baseRect.sizeDelta;
                 return localPoint - (background.anchorMax * baseRect.sizeDelta) + pivotOffset;

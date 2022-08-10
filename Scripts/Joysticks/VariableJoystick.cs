@@ -10,7 +10,7 @@ namespace JoystickPack.Joysticks
         [SerializeField]
         private JoystickType joystickType = JoystickType.Fixed;
 
-        private Vector2 fixedPosition = Vector2.zero;
+        private Vector2 fixedPosition;
 
         public float MoveThreshold
         {
@@ -23,17 +23,17 @@ namespace JoystickPack.Joysticks
             this.joystickType = joystickType;
             if (joystickType == JoystickType.Fixed)
             {
-                background.anchoredPosition = fixedPosition;
-                background.gameObject.SetActive(true);
+                Background.anchoredPosition = fixedPosition;
+                Background.gameObject.SetActive(true);
             }
             else
-                background.gameObject.SetActive(false);
+                Background.gameObject.SetActive(false);
         }
 
         protected override void Start()
         {
             base.Start();
-            fixedPosition = background.anchoredPosition;
+            fixedPosition = Background.anchoredPosition;
             SetMode(joystickType);
         }
 
@@ -41,8 +41,8 @@ namespace JoystickPack.Joysticks
         {
             if (joystickType != JoystickType.Fixed)
             {
-                background.anchoredPosition = ScreenPointToAnchoredPosition(eventData.position);
-                background.gameObject.SetActive(true);
+                Background.anchoredPosition = ScreenPointToAnchoredPosition(eventData.position);
+                Background.gameObject.SetActive(true);
             }
             base.OnPointerDown(eventData);
         }
@@ -50,7 +50,7 @@ namespace JoystickPack.Joysticks
         public override void OnPointerUp(PointerEventData eventData)
         {
             if (joystickType != JoystickType.Fixed)
-                background.gameObject.SetActive(false);
+                Background.gameObject.SetActive(false);
 
             base.OnPointerUp(eventData);
         }
@@ -60,7 +60,7 @@ namespace JoystickPack.Joysticks
             if (joystickType == JoystickType.Dynamic && magnitude > moveThreshold)
             {
                 Vector2 difference = normalised * (magnitude - moveThreshold) * radius;
-                background.anchoredPosition += difference;
+                Background.anchoredPosition += difference;
             }
             base.HandleInput(magnitude, normalised, radius, cam);
         }

@@ -7,19 +7,19 @@ namespace JoystickPack.Joysticks
         protected override void Start()
         {
             base.Start();
-            background.gameObject.SetActive(false);
+            Background.gameObject.SetActive(false);
         }
 
         public override void OnPointerDown(PointerEventData eventData)
         {
-            background.anchoredPosition = ScreenPointToAnchoredPosition(eventData.position);
-            background.gameObject.SetActive(true);
+            Background.anchoredPosition = ScreenPointToAnchoredPosition(eventData.position);
+            Background.gameObject.SetActive(true);
             base.OnPointerDown(eventData);
         }
 
         public override void OnPointerUp(PointerEventData eventData)
         {
-            background.gameObject.SetActive(false);
+            Background.gameObject.SetActive(false);
             base.OnPointerUp(eventData);
         }
     }
