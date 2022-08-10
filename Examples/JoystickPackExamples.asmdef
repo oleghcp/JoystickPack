@@ -1,0 +1,16 @@
+{
+    "name": "JoystickPackExamples",
+    "references": [
+        "JoystickPack"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "UNITY_2018_3_OR_NEWER"
+    ]
+}
