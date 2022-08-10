@@ -1,0 +1,20 @@
+{
+    "name": "com.fenerax.unitask",
+    "displayName": "Joystick Pack",
+    "author": {
+        "name": "Fenerax Studios",
+        "email": "feneraxstudios@gmail.com"
+    },
+    "version": "2.1.0",
+    "unity": "2018.3",
+    "description": "The joystick pack contains multiple different virtual joysticks which can be easily used in your projects with a simple drag and drop.",
+    "keywords": [ "joystick", "pack" ],
+    "license": "MIT",
+    "dependencies": {},
+    "samples": [
+        {
+            "displayName": "Example Scene",            
+            "path": "Examples/ExampleScene"
+        }
+    ]
+}
