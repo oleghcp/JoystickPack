@@ -14,7 +14,7 @@
     "samples": [
         {
             "displayName": "Example Scene",
-            "path": "Examples/ExampleScene"
+            "path": "Examples"
         }
     ]
 }
