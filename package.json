@@ -1,5 +1,5 @@
 {
-    "name": "com.fenerax.unitask",
+    "name": "com.fenerax.joystickpack",
     "displayName": "Joystick Pack",
     "author": {
         "name": "Fenerax Studios",
@@ -13,7 +13,7 @@
     "dependencies": {},
     "samples": [
         {
-            "displayName": "Example Scene",            
+            "displayName": "Example Scene",
             "path": "Examples/ExampleScene"
         }
     ]
