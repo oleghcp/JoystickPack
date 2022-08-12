@@ -10,5 +10,11 @@
     "description": "The joystick pack contains multiple different virtual joysticks which can be easily used in your projects with a simple drag and drop.",
     "keywords": [ "joystick", "pack" ],
     "license": "MIT",
-    "dependencies": {}
+    "dependencies": {},
+    "samples": [
+        {
+            "displayName": "Example Scene",
+            "path": "Examples/Scene"
+        }
+    ]
 }
